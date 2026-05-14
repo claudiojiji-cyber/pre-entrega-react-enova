@@ -1,5 +1,5 @@
 import Header from "./Header"
-import NavBar from "./Navbar"
+import NavBar from "./NavBar"
 import Footer from "./Footer"
 
 function Layout({ children }) {
