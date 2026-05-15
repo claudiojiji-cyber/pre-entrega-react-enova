@@ -8,7 +8,7 @@
   },
   {
     "id": 2,
-    "nombre": "Smart TV 50 pulgadas",
+    "nombre": "Smart TV 65 pulgadas",
     "precio": 699999,
     "descripcion": "Televisor 4K Ultra HD.",
     "imagen": "/tv.jpg"
@@ -24,7 +24,7 @@
     "id": 4,
     "nombre": "Lavarropas Automático",
     "precio": 780000,
-    "descripcion": "Lavarropas carga frontal.",
+    "descripcion": "Lavarropas carga frontal de 8 kilos.",
     "imagen": "/lavarropas.jpg"
   }
 ]
