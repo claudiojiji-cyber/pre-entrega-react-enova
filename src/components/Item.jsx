@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 function Item({producto}) {
 
- return (
+return(
 
 <div className="card">
 
@@ -15,6 +15,8 @@ alt={producto.nombre}
 
 <p>${producto.precio}</p>
 
+<div className="botones">
+
 <Link to={`/producto/${producto.id}`}>
 
 <button>
@@ -23,9 +25,15 @@ Ver detalle
 
 </Link>
 
+<button className="carritoBtn">
+Agregar carrito
+</button>
+
 </div>
 
- )
+</div>
+
+)
 
 }
 
