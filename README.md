@@ -1,16 +1,31 @@
-# React + Vite
+# Proyecto Final: Enova Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es mi proyecto final para el curso de React. Es una tienda online de tecnología y electrodomésticos donde los usuarios pueden navegar el catálogo, buscar productos, usar el carrito y gestionar sus compras.
 
-Currently, two official plugins are available:
+## Links del proyecto
+- **Sitio web (Deploy):** https://pre-entrega-react-enova-vercel.vercel.app/
+- **Repositorio:** https://github.com/claudiojiji-cyber/pre-entrega-react-enova
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ¿Qué tecnologías usé?
+- React.js y Vite
+- Firebase (para base de datos y autenticación)
+- React Router DOM (para la navegación)
+- Context API (para manejar el estado del carrito)
 
-## React Compiler
+## Funcionalidades principales
+- Catálogo de productos con buscador.
+- Detalle de cada producto con validación de stock.
+- Carrito de compras.
+- Panel de administrador: permite ver, crear, editar y borrar productos (CRUD).
+- Diseño responsive para que se vea bien en celulares y compu.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Acceso para el Administrador
+Si querés probar la carga de productos, usá estos datos para ingresar:
+- **Email:** admin@gmail.com
+- **Contraseña:** 1234
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instrucciones para correrlo local
+Si querés probarlo en tu PC:
+1. Cloná el repo: `git clone https://github.com/claudiojiji-cyber/pre-entrega-react-enova.git`
+2. Instalá las dependencias: `npm install`
+3. Iniciá el proyecto: `npm run dev`

@@ -1,15 +1,16 @@
-import { useState, useContext } from "react"; // 1. Importa useContext
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext"; // 2. Importa tu contexto
+import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext"; // 1. Importa el contexto de Auth
 import "./NavBar.css";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   
-  // 3. Consumimos el carrito del contexto
+  // 2. Consumimos ambos contextos
   const { carrito } = useContext(CartContext);
+  const { usuario } = useContext(AuthContext); // Accedemos al usuario
 
-  // 4. Calculamos la cantidad total de productos
   const cantidadTotal = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
   return (
@@ -24,17 +25,21 @@ function NavBar() {
         <li><Link to="/" onClick={() => setIsOpen(false)}>Inicio</Link></li>
         <li><Link to="/productos" onClick={() => setIsOpen(false)}>Productos</Link></li>
         
-        {/* 5. Mostramos la cantidad total */}
         <li>
           <Link to="/carrito" onClick={() => setIsOpen(false)}>
             Carrito ({cantidadTotal})
           </Link>
         </li>
         
+        {/* 3. Lógica de renderizado condicional: Solo si hay usuario y es admin */}
+        {usuario && usuario.rol === "admin" && (
+            <li><Link to="/perfil" onClick={() => setIsOpen(false)}>Dashboard</Link></li>
+        )}
+
         <li><Link to="/login" onClick={() => setIsOpen(false)}>Ingresar</Link></li>
       </ul>
     </nav>
   );
 }
 
-export default NavBar;  
+export default NavBar;
