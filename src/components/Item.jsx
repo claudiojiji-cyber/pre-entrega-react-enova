@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-// Importamos nuestro contexto
+
 import { CartContext } from "../context/CartContext"; 
 
 function Item({producto}) {
-  // Extraemos la función agregarAlCarrito de nuestro Context
+  
   const { agregarAlCarrito } = useContext(CartContext);
 
   return (

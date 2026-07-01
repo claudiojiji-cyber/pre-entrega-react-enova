@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { AuthContext } from "../context/AuthContext"; // 1. Importa el contexto de Auth
+import { AuthContext } from "../context/AuthContext"; 
 import "./NavBar.css";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   
-  // 2. Consumimos ambos contextos
+  
   const { carrito } = useContext(CartContext);
   const { usuario } = useContext(AuthContext); // Accedemos al usuario
 

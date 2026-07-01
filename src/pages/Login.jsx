@@ -65,7 +65,7 @@ function Login() {
         </button>
       </form>
 
-      {/* <-- ESTO ES LO NUEVO: El link para ir a registrarse --> */}
+      {}
       <div style={{ marginTop: "20px" }}>
         <p style={{ color: "white", marginBottom: "10px" }}>¿No tenés cuenta?</p>
         <Link to="/registro" style={{ color: "#00bfff", textDecoration: "none", fontWeight: "bold" }}>

@@ -1,11 +1,11 @@
 /* Productos.css */
 .productos-grid {
   display: grid;
-  /* Se adapta automáticamente: si hay espacio pone más columnas, si es celular pone 1 sola */
+  
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
-  justify-items: center; /* Centra los items si sobra espacio */
+  justify-items: center; 
   max-width: 1200px;
   margin: 0 auto;
 }
