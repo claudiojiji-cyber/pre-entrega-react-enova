@@ -3,27 +3,36 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // Arranco con el usuario en null porque al iniciar la aplicación nadie está logueado
   const [usuario, setUsuario] = useState(null);
 
-  // Armo mi función de login con la validación estricta que me piden en los requerimientos
   const login = (email, password) => {
-    // Valido que las credenciales sean exactamente las del administrador principal
+    // 1. Validamos si es el administrador
     if (email === "admin@gmail.com" && password === "1234") {
-      // Si coinciden, guardo en el estado que el usuario es admin y le doy el pase
       setUsuario({ email: email, rol: "admin" });
-      return true; // Retorno true para avisarle a mi componente Login que salió todo bien
+      return true;
+    } 
+    // 2. Si no es admin pero escribió algo, lo dejamos pasar como usuario común
+    else if (email !== "" && password !== "") {
+      setUsuario({ email: email, rol: "usuario" });
+      return true;
     } else {
-      // Si ingresan mal la contraseña o el mail, bloqueo el acceso
-      return false; // Retorno false para poder mostrar una alerta de error en la pantalla
+      return false; 
     }
   };
 
-  // Función simple para limpiar el estado y cerrar la sesión cuando sea necesario
+  // NUEVA FUNCIÓN: Simulamos el registro y lo logueamos automáticamente
+  const registro = (email, password) => {
+    if (email !== "" && password !== "") {
+      setUsuario({ email: email, rol: "usuario" });
+      return true;
+    }
+    return false;
+  };
+
   const logout = () => setUsuario(null);
 
   return (
-    <AuthContext.Provider value={{ usuario, login, logout }}>
+    <AuthContext.Provider value={{ usuario, login, registro, logout }}>
       {children}
     </AuthContext.Provider>
   );

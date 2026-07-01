@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // <-- Agregué Link acá
 
 function Login() {
   // Armo el estado inicial con email y password vacíos para atajar lo que escriba el usuario
@@ -64,6 +64,15 @@ function Login() {
           Ingresar
         </button>
       </form>
+
+      {/* <-- ESTO ES LO NUEVO: El link para ir a registrarse --> */}
+      <div style={{ marginTop: "20px" }}>
+        <p style={{ color: "white", marginBottom: "10px" }}>¿No tenés cuenta?</p>
+        <Link to="/registro" style={{ color: "#00bfff", textDecoration: "none", fontWeight: "bold" }}>
+          Crear cuenta
+        </Link>
+      </div>
+
     </div>
   );
 }
