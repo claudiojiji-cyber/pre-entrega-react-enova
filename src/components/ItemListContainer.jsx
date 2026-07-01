@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Item from "./Item"
+import "./Productos.css";
 
 function ItemListContainer() {
 
