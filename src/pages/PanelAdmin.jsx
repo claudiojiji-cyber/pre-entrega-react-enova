@@ -3,7 +3,6 @@ import { db } from "../firebase/config";
 import { collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 
 function PanelAdmin() {
-  // 1. Agregué categoria y stock al estado inicial
   const [nuevoProducto, setNuevoProducto] = useState({
     nombre: "",
     precio: "",
@@ -36,14 +35,13 @@ function PanelAdmin() {
   const guardarProducto = async (e) => {
     e.preventDefault();
     try {
-      // 2. Preparamos el objeto con todos los datos, incluyendo stock y categoria
       const datosProducto = {
         nombre: nuevoProducto.nombre,
         precio: Number(nuevoProducto.precio),
         descripcion: nuevoProducto.descripcion,
         imagen: nuevoProducto.imagen,
         categoria: nuevoProducto.categoria,
-        stock: Number(nuevoProducto.stock) // Aseguramos que sea número
+        stock: Number(nuevoProducto.stock)
       };
 
       if (editandoId) {
@@ -56,7 +54,6 @@ function PanelAdmin() {
         alert("Producto agregado con éxito");
       }
       
-      // Limpiamos el formulario incluyendo los nuevos campos
       setNuevoProducto({ nombre: "", precio: "", descripcion: "", imagen: "", categoria: "", stock: "" }); 
       cargarProductos();
     } catch (error) {
@@ -90,17 +87,14 @@ function PanelAdmin() {
   };
 
   return (
-    <div className="panel-admin" style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+    <div className="panel-admin" style={{ padding: "20px", maxWidth: "900px", margin: "0 auto" }}>
       <h2>{editandoId ? "Editar Producto" : "Alta de Productos"}</h2>
       
       <form onSubmit={guardarProducto} style={{ display: "flex", flexDirection: "column", gap: "15px", marginBottom: "40px" }}>
-        {/* ... inputs anteriores ... */}
         <input type="text" name="nombre" placeholder="Nombre" value={nuevoProducto.nombre} onChange={manejarCambio} required />
         <input type="number" name="precio" placeholder="Precio" value={nuevoProducto.precio} onChange={manejarCambio} required />
         <input type="text" name="descripcion" placeholder="Descripción" value={nuevoProducto.descripcion} onChange={manejarCambio} required />
         <input type="text" name="imagen" placeholder="URL Imagen" value={nuevoProducto.imagen} onChange={manejarCambio} required />
-        
-        {/* 3. Nuevos Inputs para Categoría y Stock */}
         <input type="text" name="categoria" placeholder="Categoría" value={nuevoProducto.categoria} onChange={manejarCambio} required />
         <input type="number" name="stock" placeholder="Stock" value={nuevoProducto.stock} onChange={manejarCambio} required />
         
@@ -116,15 +110,24 @@ function PanelAdmin() {
       </form>
 
       <h2>Lista de Productos</h2>
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
         {productos.map((prod) => (
-          <div key={prod.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #ccc", padding: "10px" }}>
-            <div>
-              <strong>{prod.nombre}</strong> - ${prod.precio} | Stock: {prod.stock} | Cat: {prod.categoria}
+          <div key={prod.id} style={{ display: "flex", alignItems: "center", border: "1px solid #ddd", padding: "10px", borderRadius: "8px", gap: "15px", backgroundColor: "#f9f9f9" }}>
+            {/* Miniatura visual de la imagen */}
+            <img 
+              src={prod.imagen} 
+              alt={prod.nombre} 
+              style={{ width: "70px", height: "70px", objectFit: "cover", borderRadius: "5px", border: "1px solid #ccc" }} 
+            />
+            
+            <div style={{ flex: 1 }}>
+              <strong style={{ fontSize: "1.1rem" }}>{prod.nombre}</strong> <br />
+              <span style={{ color: "#555" }}>${prod.precio} | Stock: {prod.stock} | Cat: {prod.categoria}</span>
             </div>
-            <div>
-              <button onClick={() => iniciarEdicion(prod)} style={{ marginRight: "10px" }}>Editar</button>
-              <button onClick={() => eliminarProducto(prod.id)} style={{ backgroundColor: "#dc3545", color: "white" }}>Eliminar</button>
+            
+            <div style={{ display: "flex", gap: "10px" }}>
+              <button onClick={() => iniciarEdicion(prod)} style={{ padding: "6px 12px", cursor: "pointer" }}>Editar</button>
+              <button onClick={() => eliminarProducto(prod.id)} style={{ backgroundColor: "#dc3545", color: "white", border: "none", padding: "6px 12px", borderRadius: "4px", cursor: "pointer" }}>Eliminar</button>
             </div>
           </div>
         ))}
