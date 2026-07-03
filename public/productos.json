@@ -4,27 +4,31 @@
     "nombre": "Notebook 15 Pulgadas",
     "precio": 899999,
     "descripcion": "Notebook ideal para trabajo y estudio.",
-    "imagen": "/notebook.jpg"
+    "imagen": "/notebook.jpg",
+    "categoria": "Notebook"
   },
   {
     "id": 2,
     "nombre": "Smart TV 65 pulgadas",
     "precio": 699999,
     "descripcion": "Televisor 4K Ultra HD.",
-    "imagen": "/tv.jpg"
+    "imagen": "/tv.jpg",
+    "categoria": "tv"
   },
   {
     "id": 3,
     "nombre": "Heladera No Frost",
     "precio": 1250000,
     "descripcion": "Heladera moderna y eficiente.",
-    "imagen": "/heladera.jpg"
+    "imagen": "/heladera.jpg",
+    "categoria": "heladeras"
   },
   {
     "id": 4,
     "nombre": "Lavarropas Automático",
     "precio": 780000,
     "descripcion": "Lavarropas carga frontal de 8 kilos.",
-    "imagen": "/lavarropas.jpg"
+    "imagen": "/lavarropas.jpg",
+    "categoria": "lavarropas carga frontal"
   }
 ]
